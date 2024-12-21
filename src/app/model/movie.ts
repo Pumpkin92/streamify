@@ -2,7 +2,7 @@ export interface Movie {
   id: number;
   title: string;
   directors: [];
-  genres: [];
+  genre: [];
   release_year: number;
   synopsis: string;
   poster_url: string;
