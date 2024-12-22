@@ -1,10 +1,13 @@
-<div class="search-container">
-  <h1>Movie Search</h1>
-  <form #movieform="ngForm" (submit)="search()">
-    <div>
+<div
+  class="container mt-5 mb-4 pb-5 text-center border py-5 px-5 shadow bg-body rounded"
+>
+  <h1 class="mogra-regular">Streamify Search</h1>
+  <form #movieform="ngForm" (submit)="search()" class="mt-4">
+    <div class="form-group row justify-content-center mb-3">
       <label for="field">Search By: </label>
       <select
         id="searchField"
+        class="form-select w-50"
         [(ngModel)]="searchField"
         name="searchField"
         required
@@ -14,34 +17,51 @@
         <option value="rating">Rating</option>
       </select>
     </div>
-
-    <input
-      type="text"
-      placeholder="Search movies..."
-      id="searchTerm"
-      name="searchTerm"
-      [(ngModel)]="searchTerm"
-      required
-    />
+    <div class="row justify-content-center mb-3">
+      <input
+        class="form-control w-50"
+        type="text"
+        placeholder="Search movies..."
+        id="searchTerm"
+        name="searchTerm"
+        [(ngModel)]="searchTerm"
+        required
+      />
+    </div>
     <div>
-      <button type="submit">Search</button>
+      <button type="submit" class="btn btn-primary">Search</button>
     </div>
   </form>
 </div>
 
-<div>
-  <ul *ngIf="filteredMovies.length > 0">
-    <li *ngFor="let movie of filteredMovies">
-      <h4>{{ movie.title }}</h4>
-      <p>Genre: {{ movie.genre }}</p>
-      <p>Rating: {{ movie.rating }}</p>
-      <button (click)="viewMovieDetails(movie.id)">Movie Details</button>
-    </li>
-  </ul>
-
-  <!-- <ng-template #noResults>
+<!-- <ng-template #noResults>
     <p *ngIf="isSearching && filteredMovies.length === 0">
       No movies found for your search.
     </p>
   </ng-template> -->
+
+<div *ngIf="filteredMovies.length === 1" class="text-center mb-3">
+  <h5>Displaying {{ filteredMovies.length }} result</h5>
+</div>
+<div *ngIf="filteredMovies.length > 1" class="text-center mb-3">
+  <h5>Displaying {{ filteredMovies.length }} results</h5>
+</div>
+
+<div class="container mb-5">
+  <div class="row" *ngIf="filteredMovies.length > 0">
+    <div *ngFor="let movie of filteredMovies" class="col-sm-6">
+      <div class="card mb-3 shadow-sml bg-body rounded text-center">
+        <div class="card-body p-4">
+          <h5 class="card-title">{{ movie.title }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            Genre: {{ movie.genre }}
+          </h6>
+          <p class="card-text">Rating: {{ movie.rating }}</p>
+          <button class="btn" (click)="viewMovieDetails(movie.id)">
+            Movie Details
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -49,6 +49,8 @@ export class MovieSearchComponent implements OnInit {
   }
 
   viewMovieDetails(id: number) {
+    console.log(id);
+
     this.router.navigate([id], { relativeTo: this.route });
   }
 }

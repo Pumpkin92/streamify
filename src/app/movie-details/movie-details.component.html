@@ -2,13 +2,13 @@
   *ngIf="movie"
   class="container w-50 mt-5 mb-5 pb-5 text-center border py-3 px-5 shadow bg-body rounded"
 >
-  <div class="pb-3">
+  <div class="pb-3 mt-5">
     <img
       class="w-50 rounded pb-3"
       src="{{ movie.poster_url }}"
       alt="movie poster image of {{ movie.title }}"
     />
-    <h3 class="px-5">{{ movie.title }}</h3>
+    <h2 class="px-5">{{ movie.title }}</h2>
     <small>{{ movie.genre }}</small>
   </div>
   <div class="row my-3 justify-content-center">
@@ -48,15 +48,3 @@
     </div>
   </div>
 </div>
-
-<!-- 
-id": 2,
-      "title": "The Lord of The Rings: The Two Towers",
-      "directors": ["Peter Jackson"],
-      "genre": ["fantasy", "action", "adventure"],
-      "release_year": 2002,
-      "synopsis": "While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron's new ally, Saruman, and his hordes of Isengard.",
-      "poster_url": "https://artofthemovies.co.uk/cdn/shop/products/lord_of_the_rings_the_two_towers_NG06275_B_2_framed1-423634.jpg?v=1611688137",
-      "lead_actors": ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
-      "runtime": 235,
-      "rating": 10 -->

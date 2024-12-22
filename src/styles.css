@@ -1,4 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-color: pink;
+}
+
 .star {
   color: gold;
+}
+
+.mogra-regular {
+  font-family: "Mogra", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1 {
+  font-size: 6rem;
+  color: rgb(134, 67, 196);
+}
+
+button {
+  background-color: rgb(150, 96, 200) !important;
+  color: white !important;
+  border: 1px solid rgb(73, 0, 128) !important;
 }
