@@ -1,1 +1,19 @@
-<p>browse-all-movies works!</p>
+<div class="container mb-5 mt-5">
+  <h2 class="text-center mb-4">Browse all Movies</h2>
+  <div class="row">
+    <div *ngFor="let movie of movies" class="col-sm-6">
+      <div class="card mb-3 shadow-sml bg-body rounded text-center">
+        <div class="card-body p-4">
+          <h5 class="card-title">{{ movie.title }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            Genre: {{ movie.genre }}
+          </h6>
+          <p class="card-text">Rating: {{ movie.rating }}</p>
+          <button class="btn" (click)="viewMovieDetails(movie.id)">
+            Movie Details
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

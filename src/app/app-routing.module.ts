@@ -7,8 +7,9 @@ import { BrowseAllMoviesComponent } from './browse-all-movies/browse-all-movies.
 const routes: Routes = [
   { path: '', redirectTo: 'movies', pathMatch: 'full' },
   { path: 'movies', component: MovieSearchComponent },
+  { path: 'movies/browse', component: BrowseAllMoviesComponent },
   { path: 'movies/:id', component: MovieDetailsComponent },
-  { path: 'movies/allMovies', component: BrowseAllMoviesComponent },
+  { path: '**', redirectTo: 'movies' },
 ];
 
 @NgModule({

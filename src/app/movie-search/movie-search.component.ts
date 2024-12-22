@@ -27,8 +27,6 @@ export class MovieSearchComponent implements OnInit {
     this.movieService.getMovies().subscribe((movies) => {
       this.filteredMovies = movies.filter((movie: any) => {
         if (this.searchField === 'genre') {
-          console.log('matches', this.filteredMovies);
-
           return (movie.genre as string[])?.some((genre) =>
             genre.toLowerCase().includes(this.searchTerm.toLowerCase())
           );
