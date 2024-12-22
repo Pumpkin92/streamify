@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-  background-color: pink;
+  background: linear-gradient(
+    88.8deg,
+    rgb(239, 171, 245) 13.4%,
+    rgb(196, 181, 249) 76.3%
+  );
 }
 
 .star {
@@ -11,15 +15,24 @@ body {
   font-family: "Mogra", serif;
   font-weight: 400;
   font-style: normal;
+  color: rgb(134, 67, 196);
 }
 
 h1 {
   font-size: 6rem;
-  color: rgb(134, 67, 196);
 }
 
 button {
   background-color: rgb(150, 96, 200) !important;
   color: white !important;
   border: 1px solid rgb(73, 0, 128) !important;
+}
+
+a {
+  text-decoration: none;
+  color: white !important;
+}
+
+.navbar {
+  background: #dab0f6;
 }
