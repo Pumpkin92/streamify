@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Movie } from '../model/movie';
 import { MovieService } from '../service/movie.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-search',
@@ -14,7 +15,11 @@ export class MovieSearchComponent implements OnInit {
   searchField: 'title' | 'genre' | 'rating' = 'title';
   isSearching: boolean = false;
 
-  constructor(public movieService: MovieService) {}
+  constructor(
+    public movieService: MovieService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
   ngOnInit(): void {}
   search(): void {
     this.isSearching = true; //not working look into
@@ -41,5 +46,9 @@ export class MovieSearchComponent implements OnInit {
     this.movieService
       .getMovies()
       .subscribe((response) => console.log(response));
+  }
+
+  viewMovieDetails(id: number) {
+    this.router.navigate([id], { relativeTo: this.route });
   }
 }
