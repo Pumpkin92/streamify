@@ -9,9 +9,10 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowseAllMoviesComponent } from './browse-all-movies/browse-all-movies.component';
 import { HeaderComponent } from './header/header.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
-  declarations: [AppComponent, MovieSearchComponent, MovieDetailsComponent, BrowseAllMoviesComponent, HeaderComponent],
+  declarations: [AppComponent, MovieSearchComponent, MovieDetailsComponent, BrowseAllMoviesComponent, HeaderComponent, PageNotFoundComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

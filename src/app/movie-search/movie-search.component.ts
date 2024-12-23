@@ -13,6 +13,7 @@ export class MovieSearchComponent implements OnInit {
   filteredMovies: Movie[] = [];
   searchTerm: string = '';
   searchField: 'title' | 'genre' | 'rating' = 'title';
+  loading: boolean = false;
   isSearching: boolean = false;
 
   constructor(
@@ -22,22 +23,25 @@ export class MovieSearchComponent implements OnInit {
   ) {}
   ngOnInit(): void {}
   search(): void {
-    this.isSearching = true; //not working look into
-
-    this.movieService.getMovies().subscribe((movies) => {
-      this.filteredMovies = movies.filter((movie: any) => {
-        if (this.searchField === 'genre') {
-          return (movie.genre as string[])?.some((genre) =>
-            genre.toLowerCase().includes(this.searchTerm.toLowerCase())
-          );
-        } else {
-          return movie[this.searchField]
-            ?.toString()
-            .toLowerCase()
-            .includes(this.searchTerm.toLowerCase());
-        }
+    (this.loading = true),
+      this.movieService.getMovies().subscribe((movies) => {
+        this.filteredMovies = movies.filter((movie: any) => {
+          if (this.searchField === 'genre') {
+            return (movie.genre as string[])?.some(
+              (genre) =>
+                genre.toLowerCase().includes(this.searchTerm.toLowerCase()),
+              (this.isSearching = true)
+            );
+          } else {
+            return movie[this.searchField]
+              ?.toString()
+              .toLowerCase()
+              .includes(this.searchTerm.toLowerCase());
+          }
+        });
       });
-    });
+
+    this.loading = false;
   }
 
   showAllMovies() {
