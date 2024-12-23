@@ -29,16 +29,19 @@
       />
     </div>
     <div>
-      <button type="submit" class="btn btn-primary">Search</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!searchTerm">
+        Search
+      </button>
     </div>
   </form>
 </div>
 
-<!-- <ng-template #noResults>
-    <p *ngIf="isSearching && filteredMovies.length === 0">
-      No movies found for your search.
-    </p>
-  </ng-template> -->
+<div *ngIf="loading" class="spinner-container">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <p>Loading movies...</p>
+</div>
 
 <div *ngIf="filteredMovies.length === 1" class="text-center mb-3">
   <h5>Displaying {{ filteredMovies.length }} result</h5>
@@ -54,7 +57,10 @@
         <div class="card-body p-4">
           <h5 class="card-title">{{ movie.title }}</h5>
           <h6 class="card-subtitle mb-2 text-muted">
-            Genre: {{ movie.genre }}
+            Genre:
+            <span *ngFor="let genre of movie.genre">
+              {{ genre }}<span> | </span>
+            </span>
           </h6>
           <p class="card-text">Rating: {{ movie.rating }}</p>
           <button class="btn" (click)="viewMovieDetails(movie.id)">
@@ -64,4 +70,8 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="text-center" *ngIf="isSearching && filteredMovies.length === 0">
+  <p>No movies found for your search.</p>
 </div>

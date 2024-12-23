@@ -9,7 +9,10 @@
       alt="movie poster image of {{ movie.title }}"
     />
     <h2 class="px-5">{{ movie.title }}</h2>
-    <small>{{ movie.genre }}</small>
+
+    <small *ngFor="let genre of movie.genre">
+      {{ genre }}<span> | </span>
+    </small>
   </div>
   <div class="row my-3 justify-content-center">
     <div class="col border">

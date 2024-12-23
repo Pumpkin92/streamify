@@ -6,7 +6,10 @@
         <div class="card-body p-4">
           <h5 class="card-title">{{ movie.title }}</h5>
           <h6 class="card-subtitle mb-2 text-muted">
-            Genre: {{ movie.genre }}
+            Genre:
+            <span *ngFor="let genre of movie.genre">
+              {{ genre }}<span> | </span>
+            </span>
           </h6>
           <p class="card-text">Rating: {{ movie.rating }}</p>
           <button class="btn" (click)="viewMovieDetails(movie.id)">
